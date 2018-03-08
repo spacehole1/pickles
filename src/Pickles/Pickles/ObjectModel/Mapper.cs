@@ -260,7 +260,14 @@ namespace PicklesDoc.Pickles.ObjectModel
 
             foreach (var tag in gherkinDocument.Feature.Tags)
             {
-                feature.AddTag(this.MapToString(tag));
+                var stringTag = this.MapToString(tag);
+                var techncialTags = configuration.TechnicalTags.Split(';');
+                if (techncialTags.Any(t => t.Equals($"@{stringTag}", StringComparison.InvariantCultureIgnoreCase)))
+                {
+                    continue;
+                }
+
+                feature.AddTag(stringTag);
             }
 
             foreach (var comment in feature.Comments.ToArray())
