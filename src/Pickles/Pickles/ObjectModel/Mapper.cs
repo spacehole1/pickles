@@ -261,8 +261,8 @@ namespace PicklesDoc.Pickles.ObjectModel
             foreach (var tag in gherkinDocument.Feature.Tags)
             {
                 var stringTag = this.MapToString(tag);
-                var techncialTags = configuration.TechnicalTags.Split(';');
-                if (techncialTags.Any(t => t.Equals($"@{stringTag}", StringComparison.InvariantCultureIgnoreCase)))
+                var technicalTags = string.IsNullOrEmpty(configuration.TechnicalTags)?null:configuration.TechnicalTags.Split(';');
+                if (technicalTags != null && technicalTags.Any(t => t.Equals($"@{stringTag}", StringComparison.InvariantCultureIgnoreCase)))
                 {
                     continue;
                 }
