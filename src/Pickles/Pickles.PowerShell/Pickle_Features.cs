@@ -66,6 +66,10 @@ namespace PicklesDoc.Pickles.PowerShell
         [Parameter(HelpMessage = CommandLinArgumentHelpTexts.HelpExcludeTags, Mandatory = false)]
         public string ExcludeTags { get; set; }
 
+        [Parameter(HelpMessage = CommandLinArgumentHelpTexts.HelpTechnicalTags, Mandatory = false)]
+        public string TechnicalTags { get; set; }
+        
+
         protected override void ProcessRecord()
         {
             var builder = new ContainerBuilder();
@@ -129,6 +133,11 @@ namespace PicklesDoc.Pickles.PowerShell
             if (!string.IsNullOrEmpty(this.ExcludeTags))
             {
                 configuration.ExcludeTags = this.ExcludeTags;
+            }
+
+            if (!string.IsNullOrEmpty(this.TechnicalTags))
+            {
+                configuration.TechnicalTags = this.TechnicalTags;
             }
 
             bool shouldEnableComments;
