@@ -65,8 +65,8 @@ namespace PicklesDoc.Pickles.UserInterface.Settings
         [DataMember(Name = "excludeTags", IsRequired = false)]
         public string ExcludeTags { get; set; }
 
-        [DataMember(Name = "technicalTags", IsRequired = false)]
-        public string TechnicalTags { get; set; }
+        [DataMember(Name = "HideTags", IsRequired = false)]
+        public string HideTags { get; set; }
         
     }
 }

@@ -1,4 +1,4 @@
-﻿//  --------------------------------------------------------------------------------------------------------------------
+//  --------------------------------------------------------------------------------------------------------------------
 //  <copyright file="CommandLineArgumentParser.cs" company="PicklesDoc">
 //  Copyright 2011 Jeffrey Cameron
 //  Copyright 2012-present PicklesDoc team and community contributors
@@ -40,7 +40,7 @@ namespace PicklesDoc.Pickles.CommandLine
         public const string HelpIncludeExperimentalFeatures = "whether to include experimental features";
         public const string HelpEnableComments = "whether to enable comments in the output";
         public const string HelpExcludeTags = "exclude scenarios that match this tag";
-        public const string HelpTechnicalTags = "Technical tags that shouldn't be displayed";
+        public const string HelpHideTags = "Technical tags that shouldn't be displayed";
 
         public const string HelpTestResultsFile =
             "the path to the linked test results file (can be a semicolon-separated list of files)";
@@ -60,7 +60,7 @@ namespace PicklesDoc.Pickles.CommandLine
         private bool includeExperimentalFeatures;
         private string enableCommentsValue;
         private string excludeTags;
-        private string technicalTags;
+        private string hideTags;
 
         public CommandLineArgumentParser(IFileSystem fileSystem)
         {
@@ -80,7 +80,7 @@ namespace PicklesDoc.Pickles.CommandLine
                 { "exp|include-experimental-features", HelpIncludeExperimentalFeatures, v => this.includeExperimentalFeatures = v != null },
                 { "cmt|enableComments=", HelpEnableComments, v => this.enableCommentsValue = v },
                 { "et|excludeTags=", HelpExcludeTags, v => this.excludeTags = v },
-                { "tt|technicalTags=", HelpTechnicalTags, v => this.technicalTags = v }
+                { "ht|hideTags=", HelpHideTags, v => this.hideTags = v }
             };
         }
 
@@ -157,9 +157,9 @@ namespace PicklesDoc.Pickles.CommandLine
                 configuration.ExcludeTags = this.excludeTags;
             }
 
-            if (!string.IsNullOrEmpty(this.technicalTags))
+            if (!string.IsNullOrEmpty(this.hideTags))
             {
-                configuration.TechnicalTags = this.technicalTags;
+                configuration.HideTags = this.hideTags;
             }
 
             bool enableComments;

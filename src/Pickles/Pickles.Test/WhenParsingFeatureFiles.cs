@@ -423,7 +423,7 @@ Feature: Test
         {
             var featureText =
                 @"# ignore this comment
-@feature-tag @technicalTag2
+@feature-tag @TagsToHide2
 Feature: Test
     In order to do something
     As a user
@@ -440,7 +440,7 @@ Feature: Test
             Check.That(feature).IsNotNull();
 
             Check.That(feature.Tags.Contains("feature-tag"));
-            Check.That(!feature.Tags.Contains("technicalTag2"));
+            Check.That(!feature.Tags.Contains("TagsToHide2"));
         }
 
         [Test]
@@ -498,7 +498,7 @@ Feature: Test
     When it runs
     Then I should see that this thing happens
 
-    @scenario-tag-1 @scenario-tag-2 @technicalTag1
+    @scenario-tag-1 @scenario-tag-2 @TagsToHide1
   Scenario: B scenario
     Given some feature
     When it runs
@@ -518,7 +518,7 @@ Feature: Test
             Check.That(feature.FeatureElements.FirstOrDefault(fe => fe.Name == "B scenario")).IsNotNull();
             Check.That(feature.FeatureElements.FirstOrDefault(fe => fe.Name == "B scenario").Tags.Contains("scenario-tag-1"));
             Check.That(feature.FeatureElements.FirstOrDefault(fe => fe.Name == "B scenario").Tags.Contains("scenario-tag-2"));
-            Check.That(!feature.FeatureElements.FirstOrDefault(fe => fe.Name == "B scenario").Tags.Contains("technicalTag1"));
+            Check.That(!feature.FeatureElements.FirstOrDefault(fe => fe.Name == "B scenario").Tags.Contains("TagsToHide1"));
             Check.That(feature.FeatureElements.FirstOrDefault(fe => fe.Name == "C scenario")).IsNotNull();
         }
 

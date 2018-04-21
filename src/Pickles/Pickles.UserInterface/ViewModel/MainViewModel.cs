@@ -89,7 +89,7 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
 
         private string excludeTags;
 
-        private string technicalTags;
+        private string hideTags;
 
         private bool isRunning;
 
@@ -219,11 +219,11 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
             set { this.Set(nameof(this.ExcludeTags), ref this.excludeTags, value); }
         }
 
-        public string TechnicalTags
+        public string HideTags
         {
-            get { return this.technicalTags; }
+            get { return this.hideTags; }
 
-            set { this.Set(nameof(this.TechnicalTags), ref this.technicalTags, value); }
+            set { this.Set(nameof(this.HideTags), ref this.hideTags, value); }
         }
 
         public ICommand GeneratePickles
@@ -343,7 +343,7 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
                 IncludeExperimentalFeatures = this.includeExperimentalFeatures,
                 EnableComments = this.enableComments,
                 ExcludeTags = this.excludeTags,
-                TechnicalTags = this.technicalTags,
+                HideTags = this.HideTags,
             };
 
             this.mainModelSerializer.Write(mainModel);
@@ -380,7 +380,7 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
             this.IncludeExperimentalFeatures = mainModel.IncludeExperimentalFeatures;
             this.EnableComments = mainModel.EnableComments;
             this.ExcludeTags = mainModel.ExcludeTags;
-            this.TechnicalTags = mainModel.TechnicalTags;
+            this.HideTags = mainModel.HideTags;
         }
 
         private void DocumentationFormatsOnCollectionChanged(object sender, EventArgs notifyCollectionChangedEventArgs)
@@ -539,7 +539,7 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
                 configuration.DocumentationFormat = documentationFormat;
 
                 configuration.ExcludeTags = this.ExcludeTags;
-                configuration.TechnicalTags = this.TechnicalTags;
+                configuration.HideTags = this.HideTags;
 
                 if (this.includeExperimentalFeatures)
                 {

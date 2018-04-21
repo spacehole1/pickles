@@ -114,7 +114,7 @@ namespace PicklesDoc.Pickles
 
         public string ExcludeTags { get; set; }
 
-        public string TechnicalTags { get; set; }
+        public string HideTags { get; set; }
 
         private void AddTestResultFileIfItExists(FileInfoBase fileInfoBase)
         {
