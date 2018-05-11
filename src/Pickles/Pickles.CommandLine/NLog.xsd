@@ -1339,16 +1339,6 @@
             <xs:documentation>Is the  an absolute or relative path?</xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="enableFileDelete" type="xs:boolean">
-          <xs:annotation>
-            <xs:documentation>Indicates whether to enable log file(s) to be deleted.</xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
-        <xs:attribute name="concurrentWriteAttempts" type="xs:integer">
-          <xs:annotation>
-            <xs:documentation>Number of times the write is appended on the file before NLog discards the log message.</xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
         <xs:attribute name="concurrentWrites" type="xs:boolean">
           <xs:annotation>
             <xs:documentation>Indicates whether concurrent writes to the log file by multiple processes on the same host.</xs:documentation>
@@ -2536,7 +2526,6 @@
           <xs:element name="includeBOM" minOccurs="0" maxOccurs="1" type="xs:boolean" />
           <xs:element name="methodName" minOccurs="0" maxOccurs="1" type="xs:string" />
           <xs:element name="namespace" minOccurs="0" maxOccurs="1" type="xs:string" />
-          <xs:element name="preAuthenticate" minOccurs="0" maxOccurs="1" type="xs:boolean" />
           <xs:element name="protocol" minOccurs="0" maxOccurs="1" type="NLog.Targets.WebServiceProtocol" />
           <xs:element name="proxyAddress" minOccurs="0" maxOccurs="1" type="xs:string" />
           <xs:element name="encoding" minOccurs="0" maxOccurs="1" type="xs:string" />
