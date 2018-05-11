@@ -38,7 +38,7 @@ namespace PicklesDoc.Pickles.Test.ObjectModel
         {
             var mapper = this.factory.CreateMapper();
 
-            Scenario result = mapper.MapToScenario((G.Scenario)null);
+            Scenario result = mapper.MapToScenario((G.Scenario)null, null);
 
             Check.That(result).IsNull();
         }
@@ -59,7 +59,7 @@ namespace PicklesDoc.Pickles.Test.ObjectModel
 
             var mapper = this.factory.CreateMapper();
 
-            Scenario result = mapper.MapToScenario(scenario);
+            Scenario result = mapper.MapToScenario(scenario,null);
 
             Check.That(result.Name).IsEqualTo("My scenario title");
 
@@ -89,7 +89,7 @@ namespace PicklesDoc.Pickles.Test.ObjectModel
 
             var mapper = this.factory.CreateMapper();
 
-            Scenario result = mapper.MapToScenario(scenario);
+            Scenario result = mapper.MapToScenario(scenario, null);
 
             Check.That(result.Slug).IsEqualTo("my-super-cryptic-scenario-title-its-got-some-w1ld-characters-cyrilic");
         }
@@ -105,7 +105,7 @@ namespace PicklesDoc.Pickles.Test.ObjectModel
 
             var mapper = this.factory.CreateMapper();
 
-            Scenario result = mapper.MapToScenario(scenario);
+            Scenario result = mapper.MapToScenario(scenario, null);
 
             Check.That(result.Description).IsEqualTo(string.Empty);
         }
