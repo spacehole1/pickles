@@ -103,6 +103,8 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
 
         private string hideTags;
 
+        private string filterTags;
+
         private bool isRunning;
 
         private bool isFeatureDirectoryValid;
@@ -240,6 +242,15 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
             set { this.Set(nameof(this.HideTags), ref this.hideTags, value); }
         }
 
+        public string FilterTags
+        {
+            get { return this.filterTags; }
+
+            set { this.Set(nameof(this.FilterTags), ref this.filterTags, value); }
+        }
+
+        
+
         public ICommand GeneratePickles
         {
             get { return this.generateCommand; }
@@ -368,6 +379,7 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
                 EnableComments = this.enableComments,
                 ExcludeTags = this.excludeTags,
                 HideTags = this.HideTags,
+                FilterTags = this.FilterTags,
             };
 
             this.mainModelSerializer.Write(mainModel);
@@ -405,6 +417,7 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
             this.EnableComments = mainModel.EnableComments;
             this.ExcludeTags = mainModel.ExcludeTags;
             this.HideTags = mainModel.HideTags;
+            this.FilterTags = mainModel.FilterTags;
         }
 
         private void DocumentationFormatsOnCollectionChanged(object sender, EventArgs notifyCollectionChangedEventArgs)
@@ -604,6 +617,7 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
 
                 configuration.ExcludeTags = this.ExcludeTags;
                 configuration.HideTags = this.HideTags;
+                configuration.FilterTags = this.FilterTags;
 
                 if (this.includeExperimentalFeatures)
                 {

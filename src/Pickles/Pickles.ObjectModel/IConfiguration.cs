@@ -49,6 +49,7 @@ namespace PicklesDoc.Pickles
 
         string ExcludeTags { get; set; }
         string HideTags { get; set; }
+        string FilterTags { get; set; }
 
         void AddTestResultFile(FileInfoBase fileInfoBase);
 

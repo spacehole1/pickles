@@ -21,6 +21,7 @@
             IncludeExperimentalFeatures="$(Pickles_IncludeExperimentalFeatures)"
             EnableComments="$(Pickles_EnableComments)"
             ExcludeTags="$(Pickles_ExcludeTags)"
-            HideTags="$(Pickles_HideTags)" />
+            HideTags="$(Pickles_HideTags)"
+            FilterTags="$(Pickles_FilterTags)" />
     </Target>
 </Project>
