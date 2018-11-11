@@ -114,7 +114,7 @@ namespace PicklesDoc.Pickles
 
         public string ExcludeTags { get; set; }
 
-        public string FilterTags { get; set; }
+        public string IncludeOnlyTags { get; set; }
 
         public string HideTags { get; set; }
 

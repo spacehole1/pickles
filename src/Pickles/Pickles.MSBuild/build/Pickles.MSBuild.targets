@@ -22,6 +22,6 @@
             EnableComments="$(Pickles_EnableComments)"
             ExcludeTags="$(Pickles_ExcludeTags)"
             HideTags="$(Pickles_HideTags)"
-            FilterTags="$(Pickles_FilterTags)" />
+            IncludeOnlyTags="$(Pickles_IncludeOnlyTags)" />
     </Target>
 </Project>

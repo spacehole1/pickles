@@ -8,13 +8,13 @@ namespace PicklesDoc.Pickles
     {
         private readonly Feature feature;
         private readonly string excludeTags;
-        private readonly string filterTags;
+        private readonly string includeOnlyTags;
 
-        public FeatureFilter(Feature feature, string excludeTags, string filterTags)
+        public FeatureFilter(Feature feature, string excludeTags, string includeOnlyTags)
         {
             this.feature = feature;
             this.excludeTags = excludeTags;
-            this.filterTags = filterTags;
+            this.includeOnlyTags = includeOnlyTags;
         }
 
         public Feature ExcludeScenariosByTags()
@@ -23,7 +23,7 @@ namespace PicklesDoc.Pickles
                 || this.AllFeatureElementsShouldBeExcluded())
                 return null;
 
-            var filteredFeatures = string.IsNullOrEmpty(filterTags)|| FeatureShouldBeFullyUsed() ? this.feature.FeatureElements : this.feature.FeatureElements.Where(fe => fe.Tags.Any(tag => this.IsFilteredTag(tag))).ToList();
+            var filteredFeatures = string.IsNullOrEmpty(includeOnlyTags)|| FeatureShouldBeFullyUsed() ? this.feature.FeatureElements : this.feature.FeatureElements.Where(fe => fe.Tags.Any(tag => this.IsFilteredTag(tag))).ToList();
 
             if (filteredFeatures.Count==0)
             {
@@ -60,7 +60,7 @@ namespace PicklesDoc.Pickles
 
         private bool IsFilteredTag(string tag)
         {
-            return tag.Equals($"@{this.filterTags}", StringComparison.InvariantCultureIgnoreCase);
+            return tag.Equals($"@{this.includeOnlyTags}", StringComparison.InvariantCultureIgnoreCase);
         }
     }
 }

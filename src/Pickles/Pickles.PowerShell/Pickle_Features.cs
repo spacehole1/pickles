@@ -69,8 +69,8 @@ namespace PicklesDoc.Pickles.PowerShell
         [Parameter(HelpMessage = CommandLineArgumentHelpTexts.HelpHideTags, Mandatory = false)]
         public string HideTags { get; set; }
 
-        [Parameter(HelpMessage = CommandLineArgumentHelpTexts.HelpFilterTags, Mandatory = false)]
-        public string FilterTags { get; set; }
+        [Parameter(HelpMessage = CommandLineArgumentHelpTexts.HelpIncludeOnlyTags, Mandatory = false)]
+        public string IncludeOnlyTags { get; set; }
         
         protected override void ProcessRecord()
         {
@@ -142,9 +142,9 @@ namespace PicklesDoc.Pickles.PowerShell
                 configuration.HideTags = this.HideTags;
             }
 
-            if (!string.IsNullOrEmpty(this.FilterTags))
+            if (!string.IsNullOrEmpty(this.IncludeOnlyTags))
             {
-                configuration.FilterTags = this.FilterTags;
+                configuration.IncludeOnlyTags = this.IncludeOnlyTags;
             }
 
             bool shouldEnableComments;
