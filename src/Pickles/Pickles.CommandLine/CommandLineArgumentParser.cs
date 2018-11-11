@@ -46,7 +46,7 @@ namespace PicklesDoc.Pickles.CommandLine
         private string enableCommentsValue;
         private string excludeTags;
         private string hideTags;
-        private string filterTags;
+        private string includeOnlyTags;
 
         public CommandLineArgumentParser(IFileSystem fileSystem)
         {
@@ -67,7 +67,7 @@ namespace PicklesDoc.Pickles.CommandLine
                 { "cmt|enableComments=", CommandLineArgumentHelpTexts.HelpEnableComments, v => this.enableCommentsValue = v },
                 { "et|excludeTags=", CommandLineArgumentHelpTexts.HelpExcludeTags, v => this.excludeTags = v },
                 { "ht|hideTags=", CommandLineArgumentHelpTexts.HelpHideTags, v => this.hideTags = v },
-                { "ft|filterTags=", CommandLineArgumentHelpTexts.HelpFilterTags, v => this.filterTags = v }
+                { "ft|includeOnlyTags=", CommandLineArgumentHelpTexts.HelpIncludeOnlyTags, v => this.includeOnlyTags = v }
             };
         }
 
@@ -149,9 +149,9 @@ namespace PicklesDoc.Pickles.CommandLine
                 configuration.HideTags = this.hideTags;
             }
 
-            if (!string.IsNullOrEmpty(this.filterTags))
+            if (!string.IsNullOrEmpty(this.includeOnlyTags))
             {
-                configuration.FilterTags = this.filterTags;
+                configuration.IncludeOnlyTags = this.includeOnlyTags;
             }
 
             bool enableComments;
