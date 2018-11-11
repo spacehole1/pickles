@@ -103,7 +103,7 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
 
         private string hideTags;
 
-        private string filterTags;
+        private string includeOnlyTags;
 
         private bool isRunning;
 
@@ -242,11 +242,11 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
             set { this.Set(nameof(this.HideTags), ref this.hideTags, value); }
         }
 
-        public string FilterTags
+        public string IncludeOnlyTags
         {
-            get { return this.filterTags; }
+            get { return this.includeOnlyTags; }
 
-            set { this.Set(nameof(this.FilterTags), ref this.filterTags, value); }
+            set { this.Set(nameof(this.IncludeOnlyTags), ref this.includeOnlyTags, value); }
         }
 
         
@@ -379,7 +379,7 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
                 EnableComments = this.enableComments,
                 ExcludeTags = this.excludeTags,
                 HideTags = this.HideTags,
-                FilterTags = this.FilterTags,
+                IncludeOnlyTags = this.IncludeOnlyTags,
             };
 
             this.mainModelSerializer.Write(mainModel);
@@ -417,7 +417,7 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
             this.EnableComments = mainModel.EnableComments;
             this.ExcludeTags = mainModel.ExcludeTags;
             this.HideTags = mainModel.HideTags;
-            this.FilterTags = mainModel.FilterTags;
+            this.IncludeOnlyTags = mainModel.IncludeOnlyTags;
         }
 
         private void DocumentationFormatsOnCollectionChanged(object sender, EventArgs notifyCollectionChangedEventArgs)
@@ -617,7 +617,7 @@ namespace PicklesDoc.Pickles.UserInterface.ViewModel
 
                 configuration.ExcludeTags = this.ExcludeTags;
                 configuration.HideTags = this.HideTags;
-                configuration.FilterTags = this.FilterTags;
+                configuration.IncludeOnlyTags = this.IncludeOnlyTags;
 
                 if (this.includeExperimentalFeatures)
                 {

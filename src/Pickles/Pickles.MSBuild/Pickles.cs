@@ -57,7 +57,7 @@ namespace PicklesDoc.Pickles.MSBuild
 
         public string HideTags { get; set; }
 
-        public string FilterTags { get; set; }        
+        public string IncludeOnlyTags { get; set; }        
 
         public override bool Execute()
         {
@@ -133,9 +133,9 @@ namespace PicklesDoc.Pickles.MSBuild
                 configuration.HideTags = this.HideTags;
             }
 
-            if (!string.IsNullOrEmpty(this.FilterTags))
+            if (!string.IsNullOrEmpty(this.IncludeOnlyTags))
             {
-                configuration.FilterTags = this.FilterTags;
+                configuration.IncludeOnlyTags = this.IncludeOnlyTags;
             }
 
             bool shouldEnableExperimentalFeatures;

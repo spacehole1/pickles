@@ -55,7 +55,7 @@ namespace PicklesDoc.Pickles
 
                 var languageServices = this.languageServicesRegistry.GetLanguageServicesForLanguage(gherkinDocument.Feature.Language);
                 Feature result = new Mapper(this.configuration, languageServices).MapToFeature(gherkinDocument);
-                result = new FeatureFilter(result, this.configuration.ExcludeTags,this.configuration.FilterTags).ExcludeScenariosByTags();
+                result = new FeatureFilter(result, this.configuration.ExcludeTags,this.configuration.IncludeOnlyTags).ExcludeScenariosByTags();
 
                 if (result != null)
                     this.descriptionProcessor.Process(result);
